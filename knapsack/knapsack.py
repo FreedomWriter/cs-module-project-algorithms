@@ -10,6 +10,24 @@ def knapsack_solver(items, capacity):
 
     pass
 
+def naive_knapsack(weight_limit, items):
+  items.sort(key=lambda x: x.value, reverse=True)
+  # could be better if we sorted by value weigth ratio
+
+  sack = []
+  cur_weight = 0
+
+
+  # while there is room in the stack
+  for i in range(len(items)):
+    # put the next most valuable  item in it
+    if cur_weight + items[i].weight <= weight_limit:
+      sack.append(items[i])
+    i += 1
+  
+  return sack
+
+  
 
 if __name__ == '__main__':
   if len(sys.argv) > 1:
