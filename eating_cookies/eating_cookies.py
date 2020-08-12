@@ -4,6 +4,10 @@ Returns: an integer
 '''
 def eating_cookies(n):
     # Your code here
+    #
+    # no or negative cookies return 0
+
+
 
     pass
 

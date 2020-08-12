@@ -1,4 +1,5 @@
 import math
+from itertools import combinations
 
 radius = 3
 area = math.pi * radius * radius
@@ -23,7 +24,7 @@ def divides_self(num):
     #loop through all digits in num
     while digits_left> 0:
         # num % 10 to GET the digit on the RHS
-        digiit = digits_left % 10
+        digit = digits_left % 10
         # if tht result is 0, return false
         if digit == 0:
             return False
@@ -33,8 +34,36 @@ def divides_self(num):
         # //10 to chop off the digit on RHS
         digits_left//=10 # digits_left // 10
 
-import randomimport time
-from intertools import combinations
+import random
+import time
+
+
+def brute_knapsack(sack, items):
+    '''Try every combination to find the best'''
+    combos = []
+
+    for i in range(1, len(items) + 1):
+        # calculate the value of all combinations
+        list_of_combos = list(combinations(items, i))
+        for combo in list_of_combos:
+            combos.append(list(combo))
+
+    best_value = -1
+    # for each combo, add up all the wieght and value of the items and save the best one
+    for combo in combos:
+        value = 0
+        weight = 0
+        for item in combo:
+            value += item.value
+            weight += item.weight
+        if weight <= 50 and value > best_value:
+            best_value = value
+            # this is the combo that is the best we have seen so far, set the sack to this combo
+            sack = combo
+    return sack
+
+
+
 
 class Item:
     def __init__(self, name, weight, value):
@@ -46,8 +75,8 @@ class Item:
     def __str__(self):
         return f'{self.name}, {self.weight} lbs, ${self.value}'
 
-    def naive_fill_knapsack(sack, items):
-        '''# Put highest value items in knapsack until full (other basic, naive approaches exist)'''
-        # TODO - sort items by value
+def naive_fill_knapsack(sack, items):
+    '''# Put highest value items in knapsack until full (other basic, naive approaches exist)'''
+    # TODO - sort items by value
 
-        # TODO put most valuable items into nknapsack until full
+    # TODO put most valuable items into nknapsack until full
