@@ -4,8 +4,16 @@ import sys
 
 def making_change(amount, denominations):
   # Your code here
+  if amount == 0:
+    return 1
 
-  pass
+  if amount < 0:
+    return 0
+
+  else:
+    return making_change(amount - denominations[0], denominations) + making_change(amount - denominations[1], denominations) + making_change(amount - denominations[2], denominations) + making_change(amount - denominations[3], denominations) + making_change(amount - denominations[4], denominations)
+
+  
 
 
 if __name__ == "__main__":

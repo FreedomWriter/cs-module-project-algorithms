@@ -59,7 +59,7 @@ def brute_knapsack(weight_limit, items):
 #faster than brute force
 # smarter than niave
 #  may not get optimal result
-def greedy_knpasack(weight_limit):
+def greedy_knpasack(weight_limit, items):
   for i in items:
     i.efficiency = i.value / i.weight
 
