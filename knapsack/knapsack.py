@@ -55,21 +55,25 @@ def brute_knapsack(weight_limit, items):
 
   return best_combo
 
-  def greedy_knpasack():
-    for i in items:
-      i.efficiency = i.value / i.weight
 
-    items.sort(key= lambda x: x.efficiency, reverse=True)
+#faster than brute force
+# smarter than niave
+#  may not get optimal result
+def greedy_knpasack(weight_limit):
+  for i in items:
+    i.efficiency = i.value / i.weight
 
-    sack = []
+  items.sort(key= lambda x: x.efficiency, reverse=True)
 
-    weight = 0
-    for i in items:
-      weight = += i.weight
-      if weight > weight_limit:
-        return sack
-      else:
-        sack.append(i)
+  sack = []
+
+  weight = 0
+  for i in items:
+    weight  += i.weight
+    if weight > weight_limit:
+      return sack
+    else:
+      sack.append(i)
 
 
 if __name__ == '__main__':
@@ -87,3 +91,31 @@ if __name__ == '__main__':
     print(knapsack_solver(items, capacity))
   else:
     print('Usage: knapsack.py [filename] [capacity]')
+
+
+# recursive fib with memeoization
+
+def fib(n):
+
+  if n == 1 or n == 0:
+    return 1
+
+  # recursive case
+  else:
+    return fib(n-1) + fib(n-2)
+
+
+# by adding cache as an argument, we can make it available to all of the recursive calls
+def fib_mem(n, cache = {}):
+  
+  if n == 1 or n == 0:
+    return 1
+
+  # recursive case
+  # check to see if we've already made this recursive call first
+  elif n in cache.keys():
+    return cache[n]
+  else:
+    value = fib_mem(n-1) + fib_mem(n-2)
+    cache[n] = value
+    return value

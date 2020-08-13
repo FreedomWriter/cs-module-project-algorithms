@@ -2,6 +2,8 @@
 
 import sys
 
+poss_plays = [['rock', 'rock'], ['rock', 'paper'], ['rock', 'scissors'], ['paper', 'rock'], ['paper', 'paper'], ['paper', 'scissors'], ['scissors', 'rock'], ['scissors', 'paper'], ['scissors', 'scissors']]
+
 def rock_paper_scissors(n):
   # Your code here
 
