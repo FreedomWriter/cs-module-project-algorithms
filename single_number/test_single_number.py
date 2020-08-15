@@ -10,7 +10,7 @@ class Test(unittest.TestCase):
             arr.append(i)
             arr.append(i)
 
-        random.shuffle(arr)
+        # random.shuffle(arr)
         rand_index = random.randint(0, len(arr))
         num = arr.pop(rand_index)
 

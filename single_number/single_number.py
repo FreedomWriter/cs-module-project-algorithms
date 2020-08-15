@@ -3,7 +3,7 @@ Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
 
-# ## Works but not with tests (because of random.shuffle) - time complexity is trash
+# # ## Works but not with tests (because of random.shuffle) - time complexity is trash
 # def single_number(arr):
 #     # Your code here
 #     # if len(arr):
@@ -11,7 +11,7 @@ Returns: an integer
 
 #     #loop through the arr - get index
 #     for i in range(len(arr) - 1):
-#         print(arr)
+#         # print(arr)
 #         # store curr_num
 #         cur_num = arr[i]
 #         arr.pop(i)
